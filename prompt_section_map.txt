@@ -1,0 +1,107 @@
+Bạn là chuyên gia phân tích nội dung sách giáo khoa lịch sử Việt Nam.
+
+═══════════════════════════════════════════════════════════════
+THÔNG TIN SÁCH THAM KHẢO
+═══════════════════════════════════════════════════════════════
+Tên tác giả  : {ten_tac_gia}
+Tên sách     : {ten_sach}
+NXB          : {nxb}
+Nơi xuất bản : {noi_xb}
+Năm xuất bản : {nam_xb}
+
+⚠️ QUAN TRỌNG: Thông tin trích nguồn (tên tác giả, tên sách, NXB, nơi XB, năm XB)
+đã được cung cấp ở phần THÔNG TIN SÁCH THAM KHẢO phía trên.
+BẮT BUỘC sử dụng CHÍNH XÁC thông tin này khi tạo trích nguồn (trich_nguon).
+KHÔNG được tự bịa, thay đổi, hoặc sử dụng thông tin từ nguồn khác.
+
+═══════════════════════════════════════════════════════════════
+TIÊU ĐỀ MỤC SÁCH THAM KHẢO (HEADING)
+═══════════════════════════════════════════════════════════════
+{heading}
+
+═══════════════════════════════════════════════════════════════
+NỘI DUNG MỤC SÁCH THAM KHẢO (NGUYÊN VĂN)
+═══════════════════════════════════════════════════════════════
+{excerpt}
+
+═══════════════════════════════════════════════════════════════
+MỤC LỤC SÁCH GIÁO KHOA (cấu trúc: Bài > Mục > Tiểu mục)
+═══════════════════════════════════════════════════════════════
+{toc_list}
+
+═══════════════════════════════════════════════════════════════
+TASK — Thực hiện 2 bước theo thứ tự sau
+═══════════════════════════════════════════════════════════════
+
+## BƯỚC 1 — XÁC ĐỊNH TIỂU MỤC PHÙ HỢP VỚI NỘI DUNG MỤC
+
+Dựa vào CẢ tiêu đề heading VÀ nội dung mục sách tham khảo, duyệt toàn bộ mục lục SGK, chọn tất cả các mục có nội dung phù hợp.
+
+Quy tắc chọn cấp:
+
+Nếu tiểu mục (a/b/c...) tồn tại và phù hợp → map đến TIỂU MỤC
+
+Nếu mục không có tiểu mục → map đến MỤC
+
+Loại bỏ các mục chỉ trùng chủ đề mờ nhạt, không đủ căn cứ từ nội dung.
+Gọi tập hợp kết quả này là [DANH_SÁCH_MỤC_GỐC].
+
+Nếu không có mục phù hợp, trả về mappings rỗng và kết thúc.
+
+════════════════════════════════════════
+
+## BƯỚC 2 — CẮT VÀ LỌC ĐOẠN TRÍCH
+
+Cắt nội dung mục sách tham khảo thành các đoạn trích nhỏ có độ dài 90–160 tiếng theo quy tắc:
+- Chỉ cắt tại ranh giới câu (sau dấu . ! ?), không cắt giữa câu
+- Có thể tạo thêm các đoạn chồng lấp: lấy câu cuối của đoạn trước + câu đầu của đoạn sau, miễn tổng đủ 90–150 tiếng
+- Mỗi đoạn con phải map được vào ít nhất 1 mục trong [DANH_SÁCH_MỤC_GỐC], nếu không → bỏ đoạn con đó
+- Mỗi đoạn con phải mang một ý nghĩa hoàn chỉnh, người đọc có thể hiểu được
+
+**Tiêu chí map (ÁP DỤNG VỚI CẢ 2 BƯỚC):**
+Một mục được chọn khi: người học đọc đoạn trích này — không cần đọc thêm bất kỳ tài liệu nào khác — có thể nhận ra rõ ràng sự liên quan giữa nội dung đoạn trích và tên mục/tiểu mục đó.
+Nếu người học phải tự suy luận, tự kết nối, hoặc đã biết trước nội dung bài học mới thấy liên quan → KHÔNG map.
+
+════════════════════════════════════════
+
+# QUY TẮC TRÍCH NGUỒN — BẮT BUỘC VỚI MỖI ĐOẠN:
+
+Mỗi phần tử trong mappings phải có trich_nguon theo mẫu sau:
+({ten_tac_gia}, {ten_sach}, {nxb}, {noi_xb}, {nam_xb}, tr. X)
+
+Xác định số trang:
+  - Trong nội dung MD thường có dòng chỉ gồm 1 số (ví dụ: "45") nằm sau nội dung
+    → đó là số trang, ghi tr. X tương ứng.
+  - Nếu không xác định được số trang → bỏ phần "tr. X".
+
+═══════════════════════════════════════════════════════════════
+# SCHEMA OUTPUT — CHỈ JSON THUẦN TÚY, KHÔNG MARKDOWN
+═══════════════════════════════════════════════════════════════
+{{
+  "mappings": [
+    {{
+      "excerpt": "Đoạn nguyên văn tiêu biểu từ nội dung mục (90-160 từ)",
+      "mapping_ids": ["ch_num|ls_num|sc_num|sub_title"],
+      "confidence": "high|medium|low|none",
+      "trich_nguon": "({ten_tac_gia}, {ten_sach}, {nxb}, {noi_xb}, {nam_xb}, tr. X)",
+      "note": "Lý do chọn hoặc lý do để rỗng (ngắn gọn)"
+    }}
+  ]
+}}
+
+Quy tắc mapping_ids:
+- Dùng đúng cache_key từ danh sách mục lục (nằm trong dấu [...]). Ví dụ: "3|4|2|a) Những thành tựu tiêu biểu của văn minh Ai Cập cổ đại"
+- Mỗi đoạn trích có thể map vào NHIỀU mục → nhiều phần tử trong mapping_ids
+- Nếu không có mục phù hợp: mapping_ids = [], confidence = "none"
+
+Quy tắc confidence:
+- "high"   : heading hoặc nội dung khớp trực tiếp với tên mục SGK
+- "medium" : liên quan nhưng phạm vi rộng/hẹp hơn
+- "low"    : chỉ đề cập gián tiếp
+- "none"   : không có mục nào phù hợp
+
+Lưu ý:
+- Mỗi mapping là 1 đoạn trích riêng biệt (90-160 từ), KHÔNG gộp tất cả vào 1
+- Không có preamble. Không markdown. Chỉ JSON duy nhất.
+- Không thêm, sửa, hoặc bịa đặt bất kỳ nội dung nào so với nội dung gốc.
+- Không giải thích thêm ngoài định dạng output trên.
