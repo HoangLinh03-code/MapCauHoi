@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-# Thêm thư mục cha (SachDienTu) vào sys.path để import API khi chạy trực tiếp
+# Thêm project_root vào path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from PyPDF2 import PdfReader, PdfWriter
@@ -11,7 +11,8 @@ from API.callAPIforPDF import VertexClient
 from google.oauth2 import service_account
 from dotenv import load_dotenv
 
-load_dotenv(os.path.join(os.path.dirname(__file__), 'API\.env'))
+# Load .env đúng đường dẫn
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', 'API', '.env'))
 
 PAGES_PER_CHUNK = 20
 
@@ -249,7 +250,7 @@ def scan_folder(folder):
                 getBookMenuFromAI(file_name, pdf_path, output_folder, failed_log_path)
 
 if __name__ == "__main__":
-    pdf_path = r"D:\\Lịch sử văn minh thế giới - Vũ Dương Ninh\\CHƯƠNG I. VĂN MINH BẮC PHI VÀ TÂY Á.pdf"
+    pdf_path = r"D:\Lịch sử văn minh thế giới - Vũ Dương Ninh\CHƯƠNG I. VĂN MINH BẮC PHI VÀ TÂY Á.pdf"
     file_name = os.path.splitext(os.path.basename(pdf_path))[0]
     output_folder = os.path.join(os.path.dirname(pdf_path), "SDT_Done", "SachDienTu")
     failed_log = os.path.join(os.path.dirname(pdf_path), "FailedFile.txt")
