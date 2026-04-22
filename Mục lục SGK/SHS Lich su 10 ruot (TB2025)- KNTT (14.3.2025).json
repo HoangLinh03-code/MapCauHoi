@@ -1,0 +1,624 @@
+{
+  "document_title": "LỊCH SỬ 10",
+  "document_en_title": "HISTORY 10",
+  "chapters": [
+    {
+      "chapter_number": "1",
+      "chapter_title": "CHỦ ĐỀ 1. LỊCH SỬ VÀ SỬ HỌC",
+      "chapter_en_title": "CHAPTER 1. HISTORY AND HISTORIOGRAPHY",
+      "page_start": 6,
+      "lessons": [
+        {
+          "lesson_number": "1",
+          "lesson_title": "Bài 1. Hiện thực lịch sử và lịch sử được con người nhận thức",
+          "lesson_en_title": "Lesson 1. Historical Reality and History as Perceived by Humans",
+          "page_start": 6,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Lịch sử là gì?",
+              "section_en_title": "1. What is History?",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Sử học là gì?",
+              "section_en_title": "2. What is Historiography?",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Khái niệm Sử học, đối tượng nghiên cứu của Sử học",
+                  "subsection_en_title": "a) Concept and Object of Study of Historiography",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Chức năng, nhiệm vụ của Sử học",
+                  "subsection_en_title": "b) Functions and Tasks of Historiography",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lesson_number": "2",
+          "lesson_title": "Bài 2. Tri thức lịch sử và cuộc sống",
+          "lesson_en_title": "Lesson 2. Historical Knowledge and Life",
+          "page_start": 11,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Sự cần thiết của việc học tập, khám phá lịch sử suốt đời",
+              "section_en_title": "1. The Necessity of Lifelong Learning and Exploration of History",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Kết nối lịch sử với cuộc sống, cuộc sống với lịch sử",
+              "section_en_title": "2. Connecting History with Life, Life with History",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "3",
+              "section_title": "3. Sưu tầm, thu thập, xử lí thông tin sử liệu trong khám phá, học tập lịch sử",
+              "section_en_title": "3. Collecting, Gathering, and Processing Historical Materials in Exploration and Study of History",
+              "level": 2,
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": "2",
+      "chapter_title": "CHỦ ĐỀ 2. VAI TRÒ CỦA SỬ HỌC",
+      "chapter_en_title": "CHAPTER 2. THE ROLE OF HISTORIOGRAPHY",
+      "page_start": 16,
+      "lessons": [
+        {
+          "lesson_number": "3",
+          "lesson_title": "Bài 3. Vai trò của Sử học",
+          "lesson_en_title": "Lesson 3. The Role of Historiography",
+          "page_start": 16,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên",
+              "section_en_title": "1. Historiography in the Conservation and Promotion of Cultural and Natural Heritage Values",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Mối quan hệ giữa Sử học với công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên",
+                  "subsection_en_title": "a) The Relationship between Historiography and the Conservation and Promotion of Cultural and Natural Heritage Values",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Vai trò của công tác bảo tồn và phát huy giá trị di sản văn hoá, di sản thiên nhiên",
+                  "subsection_en_title": "b) The Role of Conservation and Promotion of Cultural and Natural Heritage Values",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Sử học với sự phát triển du lịch",
+              "section_en_title": "2. Historiography and Tourism Development",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Vai trò của lịch sử và văn hoá đối với sự phát triển du lịch",
+                  "subsection_en_title": "a) The Role of History and Culture in Tourism Development",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Vai trò của du lịch đối với công tác bảo tồn di tích lịch sử, di sản văn hoá",
+                  "subsection_en_title": "b) The Role of Tourism in the Conservation of Historical Relics and Cultural Heritage",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": "3",
+      "chapter_title": "CHỦ ĐỀ 3. MỘT SỐ NỀN VĂN MINH THẾ GIỚI THỜI CỔ – TRUNG ĐẠI",
+      "chapter_en_title": "CHAPTER 3. SOME WORLD CIVILIZATIONS IN ANCIENT AND MEDIEVAL TIMES",
+      "page_start": 21,
+      "lessons": [
+        {
+          "lesson_number": "4",
+          "lesson_title": "Bài 4. Khái niệm văn minh. Một số nền văn minh phương Đông thời cổ – trung đại",
+          "lesson_en_title": "Lesson 4. The Concept of Civilization. Some Eastern Civilizations in Ancient and Medieval Times",
+          "page_start": 21,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Khái niệm văn minh",
+              "section_en_title": "1. The Concept of Civilization",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Một số nền văn minh phương Đông thời cổ – trung đại",
+              "section_en_title": "2. Some Eastern Civilizations in Ancient and Medieval Times",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Những thành tựu tiêu biểu của văn minh Ai Cập cổ đại",
+                  "subsection_en_title": "a) Major Achievements of Ancient Egyptian Civilization",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Những thành tựu tiêu biểu của văn minh Ấn Độ thời cổ – trung đại",
+                  "subsection_en_title": "b) Major Achievements of Indian Civilization in Ancient and Medieval Times",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "c) Văn minh Trung Hoa thời cổ – trung đại",
+                  "subsection_en_title": "c) Chinese Civilization in Ancient and Medieval Times",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lesson_number": "5",
+          "lesson_title": "Bài 5. Một số nền văn minh phương Tây thời cổ – trung đại",
+          "lesson_en_title": "Lesson 5. Some Western Civilizations in Ancient and Medieval Times",
+          "page_start": 31,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Những thành tựu tiêu biểu của văn minh Hy Lạp – La Mã thời cổ đại",
+              "section_en_title": "1. Major Achievements of Greco-Roman Civilization in Ancient Times",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Những thành tựu tiêu biểu của văn minh thời Phục hưng",
+              "section_en_title": "2. Major Achievements of Renaissance Civilization",
+              "level": 2,
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": "4",
+      "chapter_title": "CHỦ ĐỀ 4. CÁC CUỘC CÁCH MẠNG CÔNG NGHIỆP TRONG LỊCH SỬ THẾ GIỚI",
+      "chapter_en_title": "CHAPTER 4. INDUSTRIAL REVOLUTIONS IN WORLD HISTORY",
+      "page_start": 38,
+      "lessons": [
+        {
+          "lesson_number": "6",
+          "lesson_title": "Bài 6. Các cuộc cách mạng công nghiệp thời cận đại",
+          "lesson_en_title": "Lesson 6. Industrial Revolutions in the Modern Era",
+          "page_start": 38,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Thành tựu cơ bản của Cách mạng công nghiệp lần thứ nhất",
+              "section_en_title": "1. Basic Achievements of the First Industrial Revolution",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Thành tựu cơ bản của Cách mạng công nghiệp lần thứ hai",
+              "section_en_title": "2. Basic Achievements of the Second Industrial Revolution",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "3",
+              "section_title": "3. Ý nghĩa của các cuộc cách mạng công nghiệp lần thứ nhất và lần thứ hai",
+              "section_en_title": "3. Significance of the First and Second Industrial Revolutions",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Ý nghĩa đối với sự phát triển kinh tế",
+                  "subsection_en_title": "a) Significance for Economic Development",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Ý nghĩa về xã hội, văn hoá",
+                  "subsection_en_title": "b) Significance for Society and Culture",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lesson_number": "7",
+          "lesson_title": "Bài 7. Các cuộc cách mạng công nghiệp thời hiện đại",
+          "lesson_en_title": "Lesson 7. Industrial Revolutions in the Contemporary Era",
+          "page_start": 45,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Thành tựu cơ bản của Cách mạng công nghiệp lần thứ ba",
+              "section_en_title": "1. Basic Achievements of the Third Industrial Revolution",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Những thành tựu cơ bản của Cách mạng công nghiệp lần thứ tư",
+              "section_en_title": "2. Basic Achievements of the Fourth Industrial Revolution",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "3",
+              "section_title": "3. Ý nghĩa của các cuộc cách mạng công nghiệp lần thứ ba và thứ tư",
+              "section_en_title": "3. Significance of the Third and Fourth Industrial Revolutions",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Ý nghĩa đối với sự phát triển kinh tế",
+                  "subsection_en_title": "a) Significance for Economic Development",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Ý nghĩa về xã hội, văn hoá",
+                  "subsection_en_title": "b) Significance for Society and Culture",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": "5",
+      "chapter_title": "CHỦ ĐỀ 5. VĂN MINH ĐÔNG NAM Á THỜI CỔ – TRUNG ĐẠI",
+      "chapter_en_title": "CHAPTER 5. SOUTHEAST ASIAN CIVILIZATION IN ANCIENT AND MEDIEVAL TIMES",
+      "page_start": 51,
+      "lessons": [
+        {
+          "lesson_number": "8",
+          "lesson_title": "Bài 8. Hành trình phát triển và thành tựu của văn minh Đông Nam Á thời cổ – trung đại",
+          "lesson_en_title": "Lesson 8. The Development Journey and Achievements of Southeast Asian Civilization in Ancient and Medieval Times",
+          "page_start": 51,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Hành trình phát triển của văn minh Đông Nam Á thời cổ – trung đại",
+              "section_en_title": "1. The Development Journey of Southeast Asian Civilization in Ancient and Medieval Times",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Một số thành tựu tiêu biểu",
+              "section_en_title": "2. Some Major Achievements",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Tín ngưỡng và tôn giáo",
+                  "subsection_en_title": "a) Beliefs and Religions",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Chữ viết và văn học",
+                  "subsection_en_title": "b) Writing and Literature",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "c) Kiến trúc và điêu khắc",
+                  "subsection_en_title": "c) Architecture and Sculpture",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": "6",
+      "chapter_title": "CHỦ ĐỀ 6. MỘT SỐ NỀN VĂN MINH TRÊN ĐẤT NƯỚC VIỆT NAM (TRƯỚC NĂM 1858)",
+      "chapter_en_title": "CHAPTER 6. SOME CIVILIZATIONS IN VIETNAM (BEFORE 1858)",
+      "page_start": 59,
+      "lessons": [
+        {
+          "lesson_number": "9",
+          "lesson_title": "Bài 9. Một số nền văn minh cổ trên đất nước Việt Nam",
+          "lesson_en_title": "Lesson 9. Some Ancient Civilizations in Vietnam",
+          "page_start": 59,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Văn minh Văn Lang – Âu Lạc",
+              "section_en_title": "1. Van Lang – Au Lac Civilization",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Cơ sở hình thành",
+                  "subsection_en_title": "a) Basis of Formation",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Một số thành tựu tiêu biểu",
+                  "subsection_en_title": "b) Some Major Achievements",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Văn minh Chăm-pa",
+              "section_en_title": "2. Champa Civilization",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Cơ sở hình thành",
+                  "subsection_en_title": "a) Basis of Formation",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Một số thành tựu tiêu biểu",
+                  "subsection_en_title": "b) Some Major Achievements",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "3",
+              "section_title": "3. Văn minh Phù Nam",
+              "section_en_title": "3. Funan Civilization",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Cơ sở hình thành",
+                  "subsection_en_title": "a) Basis of Formation",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Một số thành tựu tiêu biểu",
+                  "subsection_en_title": "b) Some Major Achievements",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lesson_number": "10",
+          "lesson_title": "Bài 10. Văn minh Đại Việt",
+          "lesson_en_title": "Lesson 10. Dai Viet Civilization",
+          "page_start": 73,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Khái niệm và cơ sở hình thành",
+              "section_en_title": "1. Concept and Basis of Formation",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Khái niệm văn minh Đại Việt",
+                  "subsection_en_title": "a) Concept of Dai Viet Civilization",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Cơ sở hình thành",
+                  "subsection_en_title": "b) Basis of Formation",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Quá trình phát triển",
+              "section_en_title": "2. Development Process",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "3",
+              "section_title": "3. Những thành tựu tiêu biểu của văn minh Đại Việt",
+              "section_en_title": "3. Major Achievements of Dai Viet Civilization",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Chính trị",
+                  "subsection_en_title": "a) Politics",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Kinh tế",
+                  "subsection_en_title": "b) Economy",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "c) Tư tưởng và tôn giáo",
+                  "subsection_en_title": "c) Ideology and Religion",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "d) Giáo dục và khoa cử",
+                  "subsection_en_title": "d) Education and Examinations",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "e) Chữ viết và văn học",
+                  "subsection_en_title": "e) Writing and Literature",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "g) Nghệ thuật",
+                  "subsection_en_title": "g) Art",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "h) Khoa học và kĩ thuật",
+                  "subsection_en_title": "h) Science and Technology",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "4",
+              "section_title": "4. Ý nghĩa của văn minh Đại Việt trong lịch sử Việt Nam",
+              "section_en_title": "4. The Significance of Dai Viet Civilization in Vietnamese History",
+              "level": 2,
+              "subsections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter_number": "7",
+      "chapter_title": "CHỦ ĐỀ 7. CỘNG ĐỒNG CÁC DÂN TỘC VIỆT NAM",
+      "chapter_en_title": "CHAPTER 7. THE COMMUNITY OF VIETNAMESE ETHNIC GROUPS",
+      "page_start": 86,
+      "lessons": [
+        {
+          "lesson_number": "11",
+          "lesson_title": "Bài 11. Các dân tộc trên đất nước Việt Nam",
+          "lesson_en_title": "Lesson 11. Ethnic Groups in Vietnam",
+          "page_start": 86,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Thành phần dân tộc theo dân số",
+              "section_en_title": "1. Ethnic Composition by Population",
+              "level": 2,
+              "subsections": []
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Thành phần dân tộc theo ngữ hệ",
+              "section_en_title": "2. Ethnic Composition by Language Family",
+              "level": 2,
+              "subsections": []
+            }
+          ]
+        },
+        {
+          "lesson_number": "12",
+          "lesson_title": "Bài 12. Khái quát về đời sống vật chất và tinh thần của cộng đồng các dân tộc Việt Nam",
+          "lesson_en_title": "Lesson 12. Overview of the Material and Spiritual Life of the Community of Vietnamese Ethnic Groups",
+          "page_start": 90,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Đời sống vật chất",
+              "section_en_title": "1. Material Life",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Một số hoạt động kinh tế",
+                  "subsection_en_title": "a) Some Economic Activities",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Ăn, mặc, ở",
+                  "subsection_en_title": "b) Food, Clothing, and Housing",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "c) Đi lại, vận chuyển",
+                  "subsection_en_title": "c) Transportation and Commuting",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Đời sống tinh thần",
+              "section_en_title": "2. Spiritual Life",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Tín ngưỡng, tôn giáo",
+                  "subsection_en_title": "a) Beliefs and Religions",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Phong tục, tập quán, lễ hội",
+                  "subsection_en_title": "b) Customs, Practices, and Festivals",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lesson_number": "13",
+          "lesson_title": "Bài 13. Khối đại đoàn kết dân tộc trong lịch sử Việt Nam",
+          "lesson_en_title": "Lesson 13. The Great National Unity Bloc in Vietnamese History",
+          "page_start": 100,
+          "level": 1,
+          "sections": [
+            {
+              "section_number": "1",
+              "section_title": "1. Khối đại đoàn kết dân tộc trong lịch sử Việt Nam",
+              "section_en_title": "1. The Great National Unity Bloc in Vietnamese History",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Sự hình thành khối đại đoàn kết dân tộc",
+                  "subsection_en_title": "a) The Formation of the Great National Unity Bloc",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong lịch sử dựng nước và giữ nước",
+                  "subsection_en_title": "b) The Role and Importance of the Great National Unity Bloc in the History of National Construction and Defense",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "c) Vai trò, tầm quan trọng của khối đại đoàn kết dân tộc trong sự nghiệp xây dựng và bảo vệ Tổ quốc hiện nay",
+                  "subsection_en_title": "c) The Role and Importance of the Great National Unity Bloc in the Current Cause of National Construction and Defense",
+                  "level": 3
+                }
+              ]
+            },
+            {
+              "section_number": "2",
+              "section_title": "2. Chính sách dân tộc của Đảng và Nhà nước hiện nay",
+              "section_en_title": "2. The Current Ethnic Policies of the Party and State",
+              "level": 2,
+              "subsections": [
+                {
+                  "subsection_title": "a) Quan điểm của Đảng và Nhà nước về chính sách dân tộc",
+                  "subsection_en_title": "a) The Party and State's Views on Ethnic Policies",
+                  "level": 3
+                },
+                {
+                  "subsection_title": "b) Nội dung cơ bản trong chính sách dân tộc của Đảng và Nhà nước",
+                  "subsection_en_title": "b) Basic Content of the Party and State's Ethnic Policies",
+                  "level": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

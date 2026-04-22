@@ -75,9 +75,10 @@ def get_poppler_path() -> str | None:
     """
     Tìm Poppler trên Windows:
     1. Kiểm tra PATH hệ thống
-    2. Kiểm tra thư mục poppler-* cạnh file script này
-    3. Tự động tải về nếu không tìm thấy
+    2. Kiểm tra thư mục poppler-24* ở thư mục gốc project (cạnh thư mục MergeExcel)
+    3. Tự động tải về nếu không tìm thấy (chỉ cần tải 1 lần)
     Trả về đường dẫn thư mục bin/ của Poppler, hoặc None (Linux/Mac không cần).
+    LƯU Ý: Bắt buộc dùng poppler-24, KHÔNG dùng poppler_win.
     """
     if sys.platform != "win32":
         return None  # Linux/Mac: poppler trong PATH hệ thống là đủ
@@ -87,26 +88,31 @@ def get_poppler_path() -> str | None:
     if shutil.which("pdftoppm"):
         return None  # Đã có trong PATH, không cần chỉ định
 
-    # Tìm thư mục poppler-* cạnh script
+    # Tìm thư mục poppler-24* ở thư mục gốc project (1 cấp trên MergeExcel)
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    for entry in os.listdir(script_dir):
-        candidate = os.path.join(script_dir, entry, "Library", "bin")
+    project_root = os.path.dirname(script_dir)  # Thư mục ChuyenDoi
+
+    for entry in os.listdir(project_root):
+        if not entry.lower().startswith("poppler-24"):
+            continue
+        # Kiểm tra cấu trúc: poppler-24.x.x/Library/bin hoặc poppler-24.x.x/bin
+        candidate = os.path.join(project_root, entry, "Library", "bin")
         if os.path.isdir(candidate) and os.path.exists(os.path.join(candidate, "pdftoppm.exe")):
             print(f"   ✅ Tìm thấy Poppler: {candidate}")
             return candidate
-        candidate2 = os.path.join(script_dir, entry, "bin")
+        candidate2 = os.path.join(project_root, entry, "bin")
         if os.path.isdir(candidate2) and os.path.exists(os.path.join(candidate2, "pdftoppm.exe")):
             print(f"   ✅ Tìm thấy Poppler: {candidate2}")
             return candidate2
 
-    # Tự động tải Poppler về
-    print("   📥 Không tìm thấy Poppler — đang tự động tải về...")
+    # Tự động tải Poppler về thư mục gốc project (chỉ cần 1 lần)
+    print("   📥 Không tìm thấy Poppler (poppler-24*) — đang tự động tải về...")
     import urllib.request, zipfile
 
     # Poppler Windows binary (phiên bản ổn định từ github.com/oschwartz10612/poppler-windows)
     url = "https://github.com/oschwartz10612/poppler-windows/releases/download/v24.08.0-0/Release-24.08.0-0.zip"
-    zip_path = os.path.join(script_dir, "poppler_win.zip")
-    extract_dir = os.path.join(script_dir, "poppler_win")
+    zip_path = os.path.join(project_root, "poppler-24_download.zip")
+    extract_dir = os.path.join(project_root, "poppler-24.08.0")
 
     try:
         print(f"   Đang tải: {url}")
@@ -114,6 +120,7 @@ def get_poppler_path() -> str | None:
         with zipfile.ZipFile(zip_path, "r") as zf:
             zf.extractall(extract_dir)
         os.remove(zip_path)
+        print(f"   ✅ Đã giải nén Poppler vào: {extract_dir}")
 
         # Tìm thư mục bin trong extracted
         for root, dirs, files in os.walk(extract_dir):
@@ -125,7 +132,7 @@ def get_poppler_path() -> str | None:
         print()
         print("   👉 Cài thủ công:")
         print("      1. Tải file zip tại: https://github.com/oschwartz10612/poppler-windows/releases")
-        print("      2. Giải nén vào cùng thư mục với add_page.py")
+        print(f"      2. Giải nén vào: {project_root}\\poppler-24.08.0")
         print("      3. Chạy lại chương trình")
         sys.exit(1)
 
@@ -546,6 +553,9 @@ def main():
     parser = argparse.ArgumentParser(description="Bổ sung số trang vào trích nguồn Excel")
     parser.add_argument("--excel",     required=True,  help="Đường dẫn file Excel (.xlsx)")
     parser.add_argument("--pdf",       required=True,  help="Đường dẫn file PDF sách")
+    parser.add_argument("--output-dir", default=None,
+                        help="Thư mục lưu file kết quả (tạo tự động nếu chưa có). "
+                             "Mặc định: cùng thư mục với file Excel đầu vào.")
     parser.add_argument("--workers",   type=int, default=4, help="Số luồng song song (default: 4)")
     parser.add_argument("--no-ai",     action="store_true", help="Bỏ qua AI, chỉ dùng text search")
     parser.add_argument("--ocr-cache", action="store_true",
@@ -557,7 +567,7 @@ def main():
     # ── Kiểm tra file ──────────────────────────────────────────────────────────
     for path in (args.excel, args.pdf):
         if not os.path.exists(path):
-            print(f"❌ Không tìm thấy file: {path}")
+            print(f"Lỗi: Không tìm thấy file: {path}")
             sys.exit(1)
 
     use_ai = not args.no_ai and HAS_VERTEX
@@ -570,13 +580,13 @@ def main():
     # ── Build PDF index ────────────────────────────────────────────────────────
     pdf_index = build_pdf_index(args.pdf, ocr_cache=ocr_cache_path, dpi=args.dpi, ocr_workers=args.workers)
     if not pdf_index:
-        print("❌ Không đọc được nội dung từ PDF dù đã thử OCR. Kiểm tra lại file.")
+        print("Lỗi: Không đọc được nội dung từ PDF dù đã thử OCR. Kiểm tra lại file.")
         sys.exit(1)
 
     # ── Khởi tạo Vertex client ─────────────────────────────────────────────────
     client = None
     if use_ai:
-        print("🤖 Khởi tạo Vertex AI client...")
+        print("Khởi tạo Vertex AI client...")
         try:
             creds = get_vertex_ai_credentials()
             client = VertexClient(
@@ -585,20 +595,20 @@ def main():
                 model_name="gemini-3.1-pro-preview",
                 region="global",
             )
-            print("   ☁️  Upload PDF lên File API để cache...")
+            print("   Upload PDF lên File API để cache...")
             client.upload_files_cached([args.pdf])
         except Exception as e:
-            print(f"   ⚠️  Không khởi tạo được AI client: {e}. Chạy chỉ với text search.")
+            print(f"   Cảnh báo: Không khởi tạo được AI client: {e}. Chạy chỉ với text search.")
             client = None
 
     # ── Đọc Excel ─────────────────────────────────────────────────────────────
-    print(f"\n📂 Đọc Excel: {args.excel}")
+    print(f"\nĐọc Excel: {args.excel}")
     df = pd.read_excel(args.excel)
     total = len(df)
-    print(f"   → {total} dòng dữ liệu.")
+    print(f"   -> {total} dòng dữ liệu.")
 
     # ── Xử lý đa luồng ────────────────────────────────────────────────────────
-    print(f"\n⚡ Bắt đầu xử lý với {args.workers} luồng song song...")
+    print(f"\nBắt đầu xử lý với {args.workers} luồng song song...")
     all_updates = {}
     total_stats = {"exact": 0, "fuzzy": 0, "ai": 0, "miss": 0}
 
@@ -620,16 +630,25 @@ def main():
                 tag = f"exact:{stats['exact']} fuzzy:{stats['fuzzy']} ai:{stats['ai']} miss:{stats['miss']}"
                 print(f"   [{done:>3}/{total}] Dòng {orig_idx+2}: {found} trang tìm được  ({tag})")
             except Exception as e:
-                print(f"   ❌ [{done}/{total}] Lỗi dòng {orig_idx+2}: {e}")
+                print(f"   Lỗi [{done}/{total}] dòng {orig_idx+2}: {e}")
 
     # ── Cập nhật DataFrame ─────────────────────────────────────────────────────
     for idx, updates in all_updates.items():
         for col, val in updates.items():
             df.at[idx, col] = val
 
+    # ── Xác định đường dẫn output ──────────────────────────────────────────────
+    base_name = os.path.basename(args.excel)
+    name, ext = os.path.splitext(base_name)
+    output_filename = name + "_with_pages" + ext
+
+    if args.output_dir:
+        os.makedirs(args.output_dir, exist_ok=True)
+        output_path = os.path.join(args.output_dir, output_filename)
+    else:
+        output_path = os.path.join(os.path.dirname(args.excel), output_filename)
+
     # ── Lưu file ───────────────────────────────────────────────────────────────
-    base, ext = os.path.splitext(args.excel)
-    output_path = base + "_with_pages" + ext
     df.to_excel(output_path, index=False)
     apply_beautiful_format(output_path)
 
@@ -638,17 +657,17 @@ def main():
     total_all   = total_found + total_stats["miss"]
     pct = (total_found / total_all * 100) if total_all else 0
     print(f"""
-╔══════════════════════════════════════════════╗
-║  ✅ HOÀN TẤT  
-║  📄 Kết quả: {output_path}
-║  ─────────────────────────────────────────
-║  Tổng trích dẫn xử lý : {total_all:>5}
-║  Tìm được trang        : {total_found:>5}  ({pct:.1f}%)
-║    - Exact match       : {total_stats['exact']:>5}
-║    - Fuzzy match       : {total_stats['fuzzy']:>5}
-║    - AI fallback       : {total_stats['ai']:>5}
-║  Không tìm được        : {total_stats['miss']:>5}
-╚══════════════════════════════════════════════╝
+==============================================
+  HOÀN TẤT
+  Kết quả: {output_path}
+  ---------------------------------------------
+  Tổng trích dẫn xử lý : {total_all:>5}
+  Tìm được trang        : {total_found:>5}  ({pct:.1f}%)
+    - Exact match       : {total_stats['exact']:>5}
+    - Fuzzy match       : {total_stats['fuzzy']:>5}
+    - AI fallback       : {total_stats['ai']:>5}
+  Không tìm được        : {total_stats['miss']:>5}
+==============================================
 """)
 
 
