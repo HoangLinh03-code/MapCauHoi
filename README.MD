@@ -27,12 +27,12 @@ Pipeline tự động chuyển đổi sách tham khảo (PDF) sang Markdown, map
 ## Yêu Cầu Hệ Thống
 
 | Thành phần        | Yêu cầu                                       |
-| :---------------- | :--------------------------------------------- |
-| **Python**        | >= 3.10                                        |
-| **OS**            | Windows 10/11                                  |
-| **Google Cloud**  | Service Account có quyền Vertex AI             |
+| :---------------- | :-------------------------------------------- |
+| **Python**        | >= 3.10                                       |
+| **OS**            | Windows 10/11                                 |
+| **Google Cloud**  | Service Account có quyền Vertex AI            |
 | **Poppler**       | `poppler-24.08.0` (cho PDF scan ở Bước 4b)    |
-| **Tesseract OCR** | Tesseract + gói ngôn ngữ `vie` (cho PDF scan)  |
+| **Tesseract OCR** | Tesseract + gói ngôn ngữ `vie` (cho PDF scan) |
 
 ---
 
@@ -63,21 +63,23 @@ Chỉ cần cài nếu sử dụng Bước 4b (PDF scan/ảnh).
 ```
 ChuyenDoi/
 ├── API/
-│   ├── .env                    # Credentials Google Cloud
-│   ├── callAPI.py              # VertexClient chính (text generation)
-│   └── callAPIforPDF.py        # VertexClient cho PDF -> MD
+│   ├── .env                          # Credentials Google Cloud
+│   ├── callAPI.py                    # VertexClient chính (text generation)
+│   └── callAPIforPDF.py              # VertexClient cho PDF -> MD
 ├── ConvertToMDAI/
-│   └── pdfToMdAI.py            # Bước 1: PDF -> Markdown (AI)
+│   └── pdfToMdAI.py                  # Bước 1: PDF -> Markdown (AI)
 ├── MapMD/
-│   ├── fast_map.py             # Bước 2: Map đoạn trích <-> mục lục SGK
-│   ├── prompt_section_map.txt  # Prompt template cho AI mapping
-│   └── export_ex.py            # Bước 3: Xuất kết quả map -> Excel
+│   ├── fast_map.py                   # Bước 2: Map đoạn trích <-> mục lục SGK
+│   ├── prompt_section_map.txt        # Prompt template cho AI mapping
+│   └── export_ex.py                  # Bước 3: Xuất kết quả map -> Excel
 ├── MergeExcel/
-│   ├── add_page.py             # Bước 4a: Thêm trang (PDF kỹ thuật số)
-│   ├── add_page_v2.py          # Bước 4b: Thêm trang (PDF scan/ảnh)
-│   └── merge.py                # Bước 5: Gộp nhiều file Excel
-└── ConvertToMD/
-    └── export_md.py            # Bước 6: Excel -> Markdown cuối cùng
+│   ├── add_page.py                   # Bước 4a: Thêm trang (PDF kỹ thuật số)
+│   ├── add_page_v2.py                # Bước 4b: Thêm trang (PDF scan/ảnh)
+│   └── merge.py                      # Bước 5: Gộp nhiều file Excel
+├── ConvertToMD/
+│   └── export_md.py                  # Bước 6: Excel -> Markdown cuối cùng
+├── requirements.txt                  # File chứa danh sách thư viện cần cài
+└── Mục lục SGK                       # Thư mục chứa file JSON mục lục SGK
 ```
 
 ---
@@ -153,12 +155,12 @@ python MapMD/fast_map.py ^
 
 **Bảng tham số:**
 
-| Tham số       | Mô tả                                           |
-| ------------- | ------------------------------------------------ |
-| `--toc`       | File JSON mục lục SGK                            |
+| Tham số       | Mô tả                                                |
+| ------------- | ---------------------------------------------------- |
+| `--toc`       | File JSON mục lục SGK                                |
 | `--ref-files` | Danh sách file MD tham khảo (hỗ trợ wildcard `*.md`) |
-| `--prompt`    | File prompt template cho AI                      |
-| `--no-resume` | Chạy lại từ đầu, bỏ qua cache đã lưu trước đó  |
+| `--prompt`    | File prompt template cho AI                          |
+| `--no-resume` | Chạy lại từ đầu, bỏ qua cache đã lưu trước đó        |
 
 **Kết quả:** File `map_<toc>_<ref>.json` được lưu cùng thư mục với file MD đầu vào. File này chứa danh sách các mapping đã tìm được.
 
@@ -224,13 +226,13 @@ python MergeExcel/add_page.py ^
 
 **Bảng tham số `add_page.py`:**
 
-| Tham số        | Mô tả                                                              |
-| -------------- | ------------------------------------------------------------------- |
-| `--excel`      | (bắt buộc) Đường dẫn file Excel đầu vào (.xlsx)                    |
-| `--pdf`        | (bắt buộc) Đường dẫn file PDF sách gốc                             |
+| Tham số        | Mô tả                                                                |
+| -------------- | -------------------------------------------------------------------- |
+| `--excel`      | (bắt buộc) Đường dẫn file Excel đầu vào (.xlsx)                      |
+| `--pdf`        | (bắt buộc) Đường dẫn file PDF sách gốc                               |
 | `--output-dir` | Thư mục lưu file kết quả (tạo tự động). Mặc định: cùng thư mục Excel |
-| `--workers`    | Số luồng song song (mặc định: 4)                                   |
-| `--no-ai`      | Bỏ qua AI fallback, chỉ dùng exact + fuzzy match                   |
+| `--workers`    | Số luồng song song (mặc định: 4)                                     |
+| `--no-ai`      | Bỏ qua AI fallback, chỉ dùng exact + fuzzy match                     |
 
 #### 4b. Với PDF scan (file ảnh gộp thành PDF)
 
@@ -239,6 +241,7 @@ python MergeExcel/add_page.py ^
 Script này tương tự `add_page.py` nhưng bổ sung khả năng xử lý PDF scan. Khi phát hiện PDF có ít hơn 20% trang chứa text layer, script tự động chuyển sang OCR bằng Tesseract.
 
 **Yêu cầu bổ sung:**
+
 - **Poppler** (`poppler-24.08.0`): Script tự động tìm thư mục `poppler-24*` ở thư mục gốc project (`d:\CheckTool\ChuyenDoi\`). Nếu chưa có, script sẽ tự tải về. Chỉ cần tải 1 lần duy nhất.
 - **Tesseract OCR**: Đã cài với gói ngôn ngữ Vietnamese (xem phần Cài Đặt).
 
@@ -253,15 +256,15 @@ python MergeExcel/add_page_v2.py ^
 
 **Bảng tham số `add_page_v2.py`:**
 
-| Tham số        | Mô tả                                                              |
-| -------------- | ------------------------------------------------------------------- |
-| `--excel`      | (bắt buộc) Đường dẫn file Excel đầu vào (.xlsx)                    |
-| `--pdf`        | (bắt buộc) Đường dẫn file PDF sách gốc                             |
+| Tham số        | Mô tả                                                                |
+| -------------- | -------------------------------------------------------------------- |
+| `--excel`      | (bắt buộc) Đường dẫn file Excel đầu vào (.xlsx)                      |
+| `--pdf`        | (bắt buộc) Đường dẫn file PDF sách gốc                               |
 | `--output-dir` | Thư mục lưu file kết quả (tạo tự động). Mặc định: cùng thư mục Excel |
-| `--workers`    | Số luồng song song (mặc định: 4)                                   |
-| `--no-ai`      | Bỏ qua AI fallback, chỉ dùng text search + OCR                     |
-| `--ocr-cache`  | Lưu kết quả OCR vào file JSON để tái dùng lần sau                  |
-| `--dpi`        | DPI khi render PDF scan (mặc định: 200, tăng lên 300 nếu chữ nhỏ) |
+| `--workers`    | Số luồng song song (mặc định: 4)                                     |
+| `--no-ai`      | Bỏ qua AI fallback, chỉ dùng text search + OCR                       |
+| `--ocr-cache`  | Lưu kết quả OCR vào file JSON để tái dùng lần sau                    |
+| `--dpi`        | DPI khi render PDF scan (mặc định: 200, tăng lên 300 nếu chữ nhỏ)    |
 
 **Kết quả:** File `*_with_pages.xlsx` được lưu vào thư mục `--output-dir` (hoặc cùng thư mục Excel nếu không truyền). File này chứa trích nguồn đã bổ sung số trang dạng `tr. X`.
 
@@ -318,11 +321,11 @@ python ConvertToMD/export_md.py ^
 
 **Bảng tham số:**
 
-| Tham số    | Mô tả                                              |
+| Tham số    | Mô tả                                               |
 | ---------- | --------------------------------------------------- |
 | `--input`  | File Excel tổng hợp (từ Bước 5)                     |
 | `--output` | Thư mục xuất file MD                                |
-| `--malop`  | Mã lớp: `C10`, `C11`, `C12`                        |
+| `--malop`  | Mã lớp: `C10`, `C11`, `C12`                         |
 | `--toc`    | File JSON mục lục SGK (để map chính xác Chương/Bài) |
 
 **Kết quả:** Các file MD được đặt tên theo format:
@@ -407,14 +410,14 @@ Mỗi file có cấu trúc:
 
 ## Xử Lý Lỗi Thường Gặp
 
-| Lỗi                            | Nguyên nhân                    | Cách xử lý                                          |
-| ------------------------------- | ------------------------------ | ---------------------------------------------------- |
-| `Import lỗi: callAPI`          | Chưa cài thư viện              | `pip install google-genai google-auth python-dotenv` |
-| `Không tìm thấy PRIVATE_KEY`   | File `.env` chưa cấu hình     | Kiểm tra file `API/.env`                             |
-| `Không tìm thấy Poppler`       | Chưa tải hoặc sai tên thư mục | Script tự tải, hoặc đặt `poppler-24.08.0` ở thư mục gốc |
-| `Tesseract thiếu vie`          | Chưa cài gói ngôn ngữ Việt    | Tải `vie.traineddata` vào thư mục `tessdata/`        |
-| `PDF scan -> trả về rỗng`      | Chữ nhỏ, DPI thấp             | Tăng `--dpi 300`                                     |
-| `AI trả về rỗng`               | Safety filter chặn             | Kiểm tra nội dung, thử lại                          |
+| Lỗi                          | Nguyên nhân                   | Cách xử lý                                              |
+| ---------------------------- | ----------------------------- | ------------------------------------------------------- |
+| `Import lỗi: callAPI`        | Chưa cài thư viện             | `pip install google-genai google-auth python-dotenv`    |
+| `Không tìm thấy PRIVATE_KEY` | File `.env` chưa cấu hình     | Kiểm tra file `API/.env`                                |
+| `Không tìm thấy Poppler`     | Chưa tải hoặc sai tên thư mục | Script tự tải, hoặc đặt `poppler-24.08.0` ở thư mục gốc |
+| `Tesseract thiếu vie`        | Chưa cài gói ngôn ngữ Việt    | Tải `vie.traineddata` vào thư mục `tessdata/`           |
+| `PDF scan -> trả về rỗng`    | Chữ nhỏ, DPI thấp             | Tăng `--dpi 300`                                        |
+| `AI trả về rỗng`             | Safety filter chặn            | Kiểm tra nội dung, thử lại                              |
 
 ---
 
