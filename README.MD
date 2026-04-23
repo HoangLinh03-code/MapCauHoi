@@ -45,7 +45,7 @@ cd d:\CheckTool\ChuyenDoi
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 
-pip install python-dotenv google-genai google-auth PyPDF2 pypdf openpyxl pandas pytesseract pdf2image
+pip install -r requirements.txt
 ```
 
 ### 2. Cài Tesseract OCR (cho PDF scan)
