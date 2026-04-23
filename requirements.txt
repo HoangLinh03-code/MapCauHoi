@@ -1,0 +1,11 @@
+python-dotenv
+google-genai
+google-auth
+PyPDF2
+pypdf
+openpyxl
+pandas
+pytesseract
+pdf2image
+PyMuPDF
+pydantic
